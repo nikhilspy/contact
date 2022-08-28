@@ -1,0 +1,363 @@
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <link rel="stylesheet" href="style.css">
+   <script src="https://kit.fontawesome.com/846f4e850b.js" crossorigin="anonymous"></script>
+   <style>
+    * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+     }
+     
+     section {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        min-height: 100vh;
+        background-image: linear-gradient(to bottom right, #54BAB9,#9ED2C6 ,#54BAB9);
+     }
+     
+     section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+     }
+     
+     .container {
+        position: relative;
+        min-width: 1100px;
+        min-height: 550px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        z-index: 1000;
+     }
+     
+     .container .contact-info {
+        border-radius: 6px;
+        position: absolute;
+        top: 40px;
+        width: 350px;
+        height: calc(100% - 80px);
+        background: #54BAB9;
+        color: #F7ECDE;
+        z-index: 1;
+        padding: 40px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        justify-content: space-between;
+        -webkit-box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
+        
+     }
+     
+     .container .contact-info ul.info {
+        position: relative;
+        margin: 20px 0;
+     }
+     
+     .container .contact-info ul.info li {
+        position: relative;
+        list-style: none;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: 20px 0;
+        cursor: pointer;
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+     }
+     
+     .container .contact-info ul.info li span:nth-child(1) {
+        font-size: 20px;
+        margin-right: 10px;
+     }
+     
+     .container .contact-info ul.info li span:nth-child(2) {
+        font-size: 16px;
+        line-height: 1.7em;
+     }
+     
+     .container .contact-info ul.sci {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        align-self: center;
+     }
+     
+     .container .contact-info ul.sci li {
+        position: relative;
+        list-style: none;
+        margin: 20px 10px;
+        cursor: pointer;
+     }
+     
+     .container .contact-info ul.sci li a {
+        color: #40caf4;
+        font-size: 25px;
+     }
+     
+     .container .contact-form {
+        border-radius: 6px;
+        position: absolute;
+        padding: 70px 50px;
+        padding-left: 250px;
+        margin-left: 150px;
+        width: calc(100% - 150px);
+        height: 100%;
+        background: #F7ECDE;
+        -webkit-box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 50px 50px rgba(0, 0, 0, 0.5);
+     }
+     
+     .container .contact-form h2 {
+        color: #54BAB9;
+        font-size: 24px;
+        font-weight: 500;
+     }
+     
+     .container .contact-form .form-box {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding-top: 30px;
+     }
+     
+     .container .contact-form .form-box .input-box {
+        position: relative;
+        margin-bottom: 35px;
+     }
+     
+     .container .contact-form .form-box .w50 {
+        width: 47%;
+     }
+     
+     .container .contact-form .form-box .w100 {
+        width: 100%;
+     }
+     
+     .container .contact-form .form-box .input-box input, .container .contact-form .form-box .input-box textarea {
+        width: 100%;
+        resize: none;
+        padding: 5px 0;
+        font-size: 16px;
+        font-weight: 300;
+        color: yellow;
+        border: none;
+        outline: none;
+        border-bottom: 1px solid #777777;
+     }
+     
+     .container .contact-form .form-box .input-box textarea {
+        height: 120px;
+     }
+     
+     .container .contact-form .form-box .input-box span {
+        position: absolute;
+        left: 0;
+        padding: 5px 0;
+        pointer-events: none;
+        font-size: 16px;
+        font-weight: 300;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+     }
+     
+     .container .contact-form .form-box .input-box input:focus~span, .container .contact-form .form-box .input-box input:valid~span, .container .contact-form .form-box .input-box textarea:focus~span, .container .contact-form .form-box .input-box textarea:valid~span {
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+        font-size: 12px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        color: #54BAB9;
+        font-weight: 500;
+     }
+     
+     .container .contact-form .form-box .input-box input[type="submit"] {
+        position: relative;
+        cursor: pointer;
+        background: #54BAB9;
+        color: #F7ECDE;
+        border: none;
+        max-width: 150px;
+        padding: 12px;
+        border-radius: 6px;
+     }
+     
+     .container .contact-form .form-box .input-box input[type="submit"]:hover {
+        background: #E9DAC1;
+        color: #54BAB9;
+     }
+     
+     /* responsive */
+     
+     @media (max-width: 1200px) {
+        .container {
+           width: 90%;
+           min-width: auto;
+           margin: 20px;
+           box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .container .contact-info {
+           position: relative;
+           top: 0;
+           height: 550px;
+           box-shadow: none;
+        }
+        .container .contact-form {
+           position: relative;
+           width: calc(100% - 350px);
+           padding-left: 0;
+           margin-left: 0;
+           padding: 40px;
+           height: 550px;
+           box-shadow: none;
+        }
+     }
+     
+     @media (max-width: 991px) {
+        section {
+         background-image: linear-gradient(to bottom right, #54BAB9,#9ED2C6 ,#54BAB9);
+        }
+        section::before {
+           display: none;
+        }
+        .container {
+           display: flex;
+           flex-direction: column-reverse;
+        }
+        .container .contact-form {
+           width: 100%;
+           height: auto;
+        }
+        .container .contact-info {
+           width: 100%;
+           height: auto;
+           flex-direction: row;
+        }
+        .container .contact-info ul.sci {
+           position: relative;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+     }
+     @media (max-width: 660px) { 
+        .container .contact-form .form-box .w50 {
+           width: 100%;
+        }   
+        .container .contact-info {
+           flex-direction: column;
+        }
+     }
+   </style>
+
+   <title>Responsive Contact Us Page Design</title>
+</head>
+
+<body>
+   <section>
+      <div class="container">
+
+         <div class="contact-info">
+            <div>
+               <h2>Conact Info</h2>
+               <ul class="info">
+                  <li>
+                     <span><i class="fas fa-map-marker-alt"></i></span>
+                     <span>
+                        6041 Keystone Hill <br>
+                        Crown Island, Quircos <br>
+                        14586
+                     </span>
+                  </li>
+                  <li>
+                     <span><i class="fas fa-envelope"></i></span>
+                     <span>contact@info.ci</span>
+                  </li>
+                  <li>
+                     <span><i class="fas fa-phone-alt"></i></span>
+                     <span>584-584-584</span>
+                  </li>
+               </ul>
+            </div>
+            <ul class="sci">
+               <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+               <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+               <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+               <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+               <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+         </div>
+
+         <div class="contact-form">
+            <h2>Send a Message</h2>
+            <div class="form-box">
+                <form action="{% url 'contact' %}" method="POST">
+                {% csrf_token %}
+               <div class="input-box w50">
+                  <input type="text" name="fname" required>
+                  <span>First Name</span>
+               </div>
+               <div class="input-box w50">
+                  <input type="text" name="lname" required>
+                  <span>Last Name</span>
+               </div>
+               <div class="input-box w50">
+                  <input type="email" name="email" required>
+                  <span>Email Address</span>
+               </div>
+               <div class="input-box w50">
+                  <input type="text" name="contact" required>
+                  <span>Mobile Number</span>
+               </div>
+               <div class="input-box w100">
+                  <textarea name="msg" required></textarea>
+                  <span>Write your message here....</span>
+               </div>
+               <div class="input-box w100">
+                  <input type="submit" value="Send">
+               </div>
+            </form>
+            </div>
+         </div>
+
+      </div>
+   </section>
+</body>
+
+</html>
